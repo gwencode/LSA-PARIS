@@ -1,5 +1,5 @@
 <header>
-  Un header avec des images et des liens ?
+  <h1 class="text-center">Un header avec des images et des liens ?</h1>
 </header>
 
 <main>
@@ -28,14 +28,17 @@
     <h1>Actus à la une</h1>
     <% @posts.each do |post| %>
     <%# @posts contient les 2 premiers posts -> je te laisse faire des cards %>
-      <div>
-        <h2><%= post.category.upcase %></h2>
-        <h4><%= post.date %></h4>
-        <h3><%= post.title %></h3>
-        <h5><strong><%= post.subtitle %></strong></h5>
-        <%# Attention il n'y a pas toujours de subtitle dans un Post %>
-        <p><%= post.content %></p>
-      </div>
+      <article class="d-flex my-3 gap-3">
+        <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
+        <div>
+          <h2><%= post.category.upcase %></h2>
+          <h4><%= post.date %></h4>
+          <h3><%= post.title %></h3>
+          <h5><strong><%= post.subtitle %></strong></h5>
+          <%# Attention il n'y a pas toujours de subtitle dans un Post %>
+          <p><%= post.content %></p>
+        </div>
+      </article>
     <% end %>
 
     <%= link_to "Voir toutes les actus", posts_path %>
