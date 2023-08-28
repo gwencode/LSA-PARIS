@@ -38,7 +38,7 @@ puts "Creating posts..."
 
 # 2 posts de type "publications"
 Post.create(
-  category: "publications".upcase,
+  category: "publications",
   title: "La responsabilité de plein droit du seul parent chez lequel la résidence habituelle de l’enfant mineur a été fixée : conformité du 4ème alinéa de l’article 1242 du Code civil à la Constitution.",
   subtitle: "Décision n°2023-1045 QPC du 21 avril 2023",
   content: "Par une décision rendue le 21 avril 2023, le Conseil Constitutionnel a confirmé la conformité à la Constitution de l’article 1242 al. 4 du Code civil tel qu’interprété par la Cour de cassation, instituant une responsabilité de plein droit du seul parent chez lequel la résidence habituelle de l’enfant mineur a été fixée.
@@ -49,7 +49,7 @@ Voir l’article rédigé par Thomas de Boysson, avocat associé, et Clémence S
 )
 
 Post.create(
-  category: "publications".upcase,
+  category: "publications",
   title: "Destination – Sous-destination – Nouveau décret",
   subtitle: "Décret n°2023-195 du 22 mars 2023",
   content: "Le mois de mars s’est terminé avec la publication le 24 mars dernier du décret, tant attendu, relatif aux destinations. Il est accompagné d’un arrêté paru le même jour modifiant l’arrêté du 10 novembre 2016 précisant la définition des sous-destinations.
@@ -61,7 +61,7 @@ Voir l’article rédigé par Muriel Fayat, avocate associée :",
 
 # Post de type "classements", sans subtitle, publish_link et article_link
 Post.create(
-  category: "classements".upcase,
+  category: "classements",
   title: "Classement « Best Lawyers » 2023",
   content: "Les associés de Chatain & Associés de nouveau parmi les Best Lawyers avec :
 – Antoine Chatain, Dominique Ham et Thomas de Boysson en Insurance Law
@@ -76,7 +76,7 @@ Un grand merci à nos équipes pour leur engagement et à nos confrères pour le
 
 # Post de type "communiqués de presse", sans subtitle, publish_link et article_link
 Post.create(
-  category: "communiqués de presse".upcase,
+  category: "communiqués de presse",
   title: "Arrivée d’Olivier MOREAU",
   content: "Le cabinet est très heureux d’annoncer l’arrivée d’Olivier Moreau, avocat collaborateur, au sein du cabinet.
 
@@ -87,7 +87,7 @@ Post.create(
 
 # Post de type "événements", sans publish_link et article_link
 Post.create(
-  category: "événements".upcase,
+  category: "événements",
   title: "Chatain & Associés ouvre un bureau à Bordeaux",
   subtitle: "Le cabinet Chatain & Associés ouvre son premier bureau en régions. Thomas de Boysson, associé co-responsable du pôle assurance du cabinet, sera en charge du déploiement de cette antenne bordelaise.",
   content: "Fidèle à l’ADN du cabinet, le nouveau bureau accompagnera ses clients dans l’anticipation et la gestion des litiges. Partant de la volonté d’être toujours au cœur des enjeux de la vie des affaires et au plus près de leurs clients, les associés du cabinet entendent proposer localement leurs compétences reconnues au niveau national en droit des affaires, en droit de la responsabilité et des assurances, ainsi qu’en droit public et en droit pénal.

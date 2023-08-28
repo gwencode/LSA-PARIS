@@ -1,0 +1,43 @@
+<main>
+  <section id="first-section-actus">
+    <h1>Actualités</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </section>
+
+  <section id="filter-actus-categories">
+    <%= link_to "TOUS", posts_path %>
+    <%= link_to "CLASSEMENTS", posts_path(catégorie: "classements") %>
+    <%= link_to "Communiqués de presse".upcase, posts_path(catégorie: "communiqués") %>
+    <%= link_to "Evénements".upcase, posts_path(catégorie: "événements") %>
+    <%= link_to "PUBLICATIONS", posts_path(catégorie: "publications") %>
+  </section>
+
+  <section id="actus-categories">
+    <% @posts.each do |post| %>
+      <div>
+        <h2><%= post.category.upcase %></h2>
+        <h4><%= post.date %></h4>
+        <h3><%= post.title %></h3>
+        <h5>
+          <strong>
+            <%= post.subtitle %>
+            <% if post.publish_link %>
+              <%= link_to "(Publiée)", post.publish_link, target: "_blank" %>
+            <% end %>
+          </strong>
+        </h5>
+        <%# Attention il n'y a pas toujours de subtitle dans un Post %>
+        <p>
+          <%= post.content %>
+          <% if post.publish_link %>
+            <%= link_to "lire l'article.", post.article_link, target: "_blank" %>
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+  </section>

@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<nav class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "LSA-PARIS-LOGO.jpg" %>
@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <%= link_to "Actualités", "#", class: "nav-link" %>
+          <%= link_to "Actualités", posts_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Cabinet", "#", class: "nav-link" %>
@@ -37,4 +37,4 @@
       </ul>
     </div>
   </div>
-</div>
+</nav>
