@@ -1,0 +1,30 @@
+<header>
+  <%= link_to "< Retour", posts_path %>
+  <p><%= @post.date %> | <%= "actualités".upcase %> | <%= @post.category.upcase %></p>
+</header>
+
+<main>
+
+  <article class="d-flex my-3 gap-3">
+    <%= cl_image_tag @post.photo.key, height: 500, width: 500, crop: :fill %>
+    <div>
+      <h2><%= @post.title %></h2>
+      <h4>
+        <strong>
+          <%# Attention il n'y a pas toujours de subtitle dans un Post %>
+          <%= @post.subtitle %>
+          <% if @post.publish_link %>
+            (<%= link_to "Publiée", @post.publish_link, target: "_blank" %>)
+          <% end %>
+        </strong>
+      </h4>
+      <p>
+        <%= @post.content %>
+        <% if @post.publish_link %>
+          <%= link_to "lire l'article.", @post.article_link, target: "_blank" %>
+        <% end %>
+      </p>
+    </div>
+  </article>
+
+</main>

@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @posts = filter_posts(Post.all)
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private
