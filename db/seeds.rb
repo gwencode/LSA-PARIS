@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require "open-uri"
+
 puts "Cleaning database..."
 User.destroy_all
 Post.destroy_all
@@ -37,7 +39,7 @@ puts "#{User.count} admin users created!"
 puts "Creating posts..."
 
 # 2 posts de type "publications"
-Post.create(
+post1 = Post.new(
   category: "publications",
   title: "La responsabilité de plein droit du seul parent chez lequel la résidence habituelle de l’enfant mineur a été fixée : conformité du 4ème alinéa de l’article 1242 du Code civil à la Constitution.",
   subtitle: "Décision n°2023-1045 QPC du 21 avril 2023",
@@ -47,8 +49,11 @@ Voir l’article rédigé par Thomas de Boysson, avocat associé, et Clémence S
   article_link: "https://chatainassocies.com/wp-content/uploads/2023/05/Chatain-Focus-decision-conseil-constitutionnel.pdf",
   date: Date.new(2023, 5, 4)
 )
+photo1 = URI.open("https://chatainassocies.com/wp-content/uploads/2022/10/pexels-alex-garcia-2102850-scaled.jpg")
+post1.photo.attach(io: photo1, filename: "pexels-alex-garcia.jpg", content_type: "image/png")
+post1.save
 
-Post.create(
+post2 = Post.new(
   category: "publications",
   title: "Destination – Sous-destination – Nouveau décret",
   subtitle: "Décret n°2023-195 du 22 mars 2023",
@@ -58,9 +63,12 @@ Voir l’article rédigé par Muriel Fayat, avocate associée :",
   article_link: "https://chatainassocies.com/wp-content/uploads/2023/04/Chatain-Focus-Destination-Sous-destination-Nouveau-decret.pdf",
   date: Date.new(2023, 4, 7)
 )
+photo2 = URI.open("https://chatainassocies.com/wp-content/uploads/2022/04/matt-reames-qlD3u1cz6zY-unsplash-scaled.jpg")
+post2.photo.attach(io: photo2, filename: "matt-reames.jpg", content_type: "image/png")
+post2.save
 
 # Post de type "classements", sans subtitle, publish_link et article_link
-Post.create(
+post3 = Post.new(
   category: "classements",
   title: "Classement « Best Lawyers » 2023",
   content: "Les associés de Chatain & Associés de nouveau parmi les Best Lawyers avec :
@@ -73,9 +81,12 @@ Félicitations à nos associés pour s’être distingués une nouvelle fois !
 Un grand merci à nos équipes pour leur engagement et à nos confrères pour leur confiance renouvelée !",
   date: Date.new(2022, 9, 26)
 )
+photo3 = URI.open("https://chatainassocies.com/wp-content/uploads/2022/05/pexels-essow-936722.jpg")
+post3.photo.attach(io: photo3, filename: "pexels-essow.jpg", content_type: "image/png")
+post3.save
 
 # Post de type "communiqués de presse", sans subtitle, publish_link et article_link
-Post.create(
+post4 = Post.new(
   category: "communiqués de presse",
   title: "Arrivée d’Olivier MOREAU",
   content: "Le cabinet est très heureux d’annoncer l’arrivée d’Olivier Moreau, avocat collaborateur, au sein du cabinet.
@@ -84,9 +95,12 @@ Post.create(
 👉 Olivier est avocat au Barreau de Paris (Ordre des avocats de Paris) depuis 2019, il est diplômé d’un Master 2 Droit international privé et du commerce international – Paris 2.",
   date: Date.new(2021, 3, 4)
 )
+photo4 = URI.open("https://chatainassocies.com/wp-content/uploads/2021/06/pexels-enes-yoldas%CC%A7-11042849.jpg")
+post4.photo.attach(io: photo4, filename: "pexels-enes-yoldas.jpg", content_type: "image/png")
+post4.save
 
 # Post de type "événements", sans publish_link et article_link
-Post.create(
+post5 = Post.new(
   category: "événements",
   title: "Chatain & Associés ouvre un bureau à Bordeaux",
   subtitle: "Le cabinet Chatain & Associés ouvre son premier bureau en régions. Thomas de Boysson, associé co-responsable du pôle assurance du cabinet, sera en charge du déploiement de cette antenne bordelaise.",
@@ -98,5 +112,8 @@ A propos de Thomas de Boysson
 Avocat à la Cour, Thomas de Boysson a développé, au fil des années, une expertise en matière de contentieux de la responsabilité civile, des assurances et de la construction, tant en défense qu’en recours. L’avocat de 37 ans a rejoint la structure en 2012 en tant que collaborateur. Diplômé d’un master 2 de l’institut des assurances de Bordeaux (2008), entre 2008 et 2010, il passe plusieurs mois au sein du service indemnisation de la compagnie d’assurance AIG. Il est également membre de l’Association internationale de Droit des Assurances (AIDA). La compétence du pôle assurance du Cabinet dont il est co-responsable avec Antoine Chatain et Dominique Ham est reconnue par le marché depuis de nombreuses années.",
   date: Date.new(2021, 3, 4)
 )
+photo5 = URI.open("https://chatainassocies.com/wp-content/uploads/2021/06/pexels-laura-tancredi-7078576.jpg")
+post5.photo.attach(io: photo5, filename: "pexels-enes-yoldas.jpg", content_type: "image/png")
+post5.save
 
 puts "#{Post.count} posts created!"
