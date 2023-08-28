@@ -28,18 +28,19 @@
   <section id="actus-homepage">
     <h1>Actus à la une</h1>
     <% @posts.each do |post| %>
-    <%# @posts contient les 2 premiers posts -> je te laisse faire des cards %>
-      <article class="d-flex my-3 gap-3">
-        <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
-        <div>
-          <h2><%= post.category.upcase %></h2>
-          <h4><%= post.date %></h4>
-          <h3><%= post.title %></h3>
-          <h5><strong><%= post.subtitle %></strong></h5>
-          <%# Attention il n'y a pas toujours de subtitle dans un Post %>
-          <p><%= post.content %></p>
-        </div>
-      </article>
+      <%= link_to post_path(post), class: "text-decoration-none text-black" do %>
+        <article class="d-flex my-3 gap-3">
+          <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
+          <div>
+            <h2><%= post.category.upcase %></h2>
+            <h4><%= post.date %></h4>
+            <h3><%= post.title %></h3>
+            <h5><strong><%= post.subtitle %></strong></h5>
+            <%# Réduire le nombre de caractères de content pour ne pas avoir la fin ? Ou ajouter une colonne dans le model de Post pour la partie "Voir l'article rédigé par..."  ? %>
+            <p><%= post.content %></p>
+          </div>
+        </article>
+      <% end %>
     <% end %>
 
     <%= link_to "Voir toutes les actus", posts_path %>
