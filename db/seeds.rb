@@ -26,11 +26,11 @@ User.create(
   admin: true
 )
 
-# User.create(
-#   email: ENV['ADMIN_EMAIL_3'].to_s,
-#   password: ENV['ADMIN_PASSWORD_3'].to_s,
-#   admin: true
-# )
+User.create(
+  email: ENV['ADMIN_EMAIL_3'].to_s,
+  password: ENV['ADMIN_PASSWORD_3'].to_s,
+  admin: true
+)
 
 puts "#{User.count} admin users created!"
 
