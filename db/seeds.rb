@@ -36,7 +36,6 @@ puts "#{User.count} admin users created!"
 
 puts "Creating posts..."
 
-
 # 2 posts de type "publications"
 Post.create(
   category: "publications",
