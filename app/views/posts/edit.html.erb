@@ -1,0 +1,25 @@
+<header>
+  <%= link_to "< Retour", :back %>
+  <h1>Modifier l'actualité <%= @post.title %> du <%= @post.date %></h1>
+</header>
+
+<main>
+
+  <article class="d-flex my-3 gap-3">
+    <%= cl_image_tag @post.photo.key, height: 500, width: 500, crop: :fill %>
+    <div>
+      <%= simple_form_for @post do |f| %>
+        <%= f.input :category, collection: ["classements", "communiqués de presse", "événements", "publications"] %>
+        <%= f.input :date, as: :date, html5: true, input_html: { value: Date.today } %>
+        <%= f.input :title %>
+        <%= f.input :subtitle, placeholder: "Décision n°XXXX" %>
+        <%= f.input :publish_link %>
+        <%= f.input :content %>
+        <%= f.input :article_link %>
+        <%= f.input :photo, as: :file, placeholder: "Choisir une photo", required: true %>
+        <%= f.submit "Modifier l'actualité" %>
+      <% end %>
+    </div>
+  </article>
+
+</main>

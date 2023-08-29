@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index
     @posts = filter_posts(Post.all)
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
@@ -28,6 +28,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @post.update(post_params.except(:photo))
+      if post_params[:photo].present?
+        @post.photo.purge
+        @post.photo.attach(post_params[:photo])
+      end
+      redirect_to post_path(@post), notice: "Actualitée modifiée 👍"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def filter_posts(posts)
@@ -43,6 +58,10 @@ class PostsController < ApplicationController
     else
       posts.order(date: :desc)
     end
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
   def post_params
