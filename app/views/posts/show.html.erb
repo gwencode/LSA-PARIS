@@ -24,10 +24,17 @@
           <%= link_to "lire l'article.", @post.article_link, target: "_blank" %>
         <% end %>
       </p>
-      <%= link_to "Modifier l'actualité", edit_post_path(@post) %>
-      <%= link_to "Supprimer l'actualité",
-                post_path(@post),
-                data: {turbo_method: :delete, turbo_confirm: "Supprimer cette actualité ?"} %>
+
+      <% if policy(@post).edit? %>
+        <%= link_to "Modifier l'actualité", edit_post_path(@post) %>
+      <% end %>
+
+      <% if policy(@post).destroy? %>
+        <%= link_to "Supprimer l'actualité",
+                  post_path(@post),
+                  data: {turbo_method: :delete, turbo_confirm: "Supprimer cette actualité ?"} %>
+      <% end %>
+
     </div>
   </article>
 
