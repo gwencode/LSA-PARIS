@@ -1,0 +1,16 @@
+<%# A modifier avec le nom de domaine final %>
+Vous avez reçu un nouveau message depuis lsa-paris.fr
+=============================================================
+
+Coordonnées :
+- Prénom : <%= @contact.first_name.capitalize.strip %>
+- Nom : <%= @contact.last_name.upcase.strip %>
+- Fonction : <%= @contact.fonction.strip %>
+- Société : <%= @contact.firm.strip %>
+- Email : <%= @contact.email.strip %>
+- Téléphone : <%= @contact.phone.empty? ? "Non renseigné" : @contact.phone.strip %>
+
+Objet du message : <%= @contact.subject.strip %>
+
+Message :
+<%= @contact.message.strip %>

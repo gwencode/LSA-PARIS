@@ -1,0 +1,19 @@
+Message envoyé à LSA PARIS
+========================================================
+
+Nous vous confirmons le bon envoi de votre message à LSA PARIS.
+
+Rappel des informations envoyées :
+- Prénom : <%= @contact.first_name.capitalize.strip %>
+- Nom : <%= @contact.last_name.upcase.strip %>
+- Fonction : <%= @contact.fonction.strip %>
+- Société : <%= @contact.firm.strip %>
+- Email : <%= @contact.email.strip %>
+- Téléphone : <%= @contact.phone.empty? ? "Non renseigné" : @contact.phone.strip %>
+
+Objet du message : <%= @contact.subject.strip %>
+
+Message :
+<%= @contact.message.strip %>
+
+Merci de votre intérêt pour notre cabinet et à bientôt !
