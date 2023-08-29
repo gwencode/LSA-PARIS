@@ -13,17 +13,18 @@
         <strong>
           <%# Attention il n'y a pas toujours de subtitle dans un Post %>
           <%= @post.subtitle %>
-          <% if @post.publish_link %>
+          <% unless @post.publish_link.nil? || @post.publish_link.empty? %>
             (<%= link_to "Publiée", @post.publish_link, target: "_blank" %>)
           <% end %>
         </strong>
       </h4>
       <p>
         <%= @post.content %>
-        <% if @post.publish_link %>
+        <% unless @post.article_link.nil? || @post.article_link.empty? %>
           <%= link_to "lire l'article.", @post.article_link, target: "_blank" %>
         <% end %>
       </p>
+      <%= link_to "Modifier l'actualité", edit_post_path(@post) %>
     </div>
   </article>
 

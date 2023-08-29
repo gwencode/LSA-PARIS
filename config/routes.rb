@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  resources :posts, only: %i[index show new create]
+  resources :posts
 
   get "/cabinet", to: "pages#cabinet"
 
