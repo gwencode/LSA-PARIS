@@ -8,7 +8,8 @@ class ContactController < ApplicationController
   def message
     @contact = Contact.new(contact_params)
     if @contact.valid?
-      # ContactMailer.with(contact: @contact).contact.deliver_now
+      ContactMailer.with(contact: @contact).contact_admin_email.deliver_now
+      ContactMailer.with(contact: @contact).contact_user_email.deliver_now
       redirect_to contact_path, notice: "Votre message a bien été envoyé."
     else
       render :new, status: :unprocessable_entity

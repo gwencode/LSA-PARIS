@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <%# A modifier avec le nom de domaine final %>
+    <h4>Vous avez reçu un nouveau message depuis lsa-paris.fr</h4>
+    <p style="margin: 0">Coordonnées :</p>
+    <ul>
+      <li>Prénom : <%= @contact.first_name.capitalize.strip %></li>
+      <li>Nom : <%= @contact.last_name.upcase.strip %></li>
+      <li>Fonction : <%= @contact.fonction.strip %></li>
+      <li>Société : <%= @contact.firm.strip %></li>
+      <li>Email : <%= @contact.email.strip %></li>
+      <li>Téléphone : <%= @contact.phone.empty? ? "Non renseigné" : @contact.phone.strip %></li>
+    </ul>
+    <p>Objet du message : <%= @contact.subject.strip %></p>
+    <p>Message :
+      <br>
+      <%= @contact.message.strip %>
+    </p>
+  </body>
+</html>
