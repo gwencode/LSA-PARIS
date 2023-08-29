@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_085336) do
     t.string "article_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "date", default: "2023-08-28", null: false
+    t.date "date", default: "2023-08-29", null: false
   end
 
   create_table "users", force: :cascade do |t|

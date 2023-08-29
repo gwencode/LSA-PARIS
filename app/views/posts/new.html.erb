@@ -1,0 +1,18 @@
+<header>
+  <%= link_to "< Retour", :back %>
+</header>
+
+<main>
+    <h2>Nouvelle Actualité</h2>
+    <%= simple_form_for @post do |f| %>
+        <%= f.input :category, collection: ["classements", "communiqués de presse", "événements", "publications"] %>
+        <%= f.input :date, as: :date, html5: true, input_html: { value: Date.today } %>
+        <%= f.input :title %>
+        <%= f.input :subtitle, placeholder: "Décision n°XXXX" %>
+        <%= f.input :publish_link %>
+        <%= f.input :content %>
+        <%= f.input :article_link %>
+        <%= f.input :photo, as: :file, required: true %>
+        <%= f.submit "Poster l'actualité" %>
+    <% end %>
+</main>
