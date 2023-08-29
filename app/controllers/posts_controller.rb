@@ -3,18 +3,21 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = filter_posts(Post.all)
+    @posts = filter_posts(policy_scope(Post))
   end
 
   def show
+    authorize @post
   end
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def create
     @post = Post.new(post_params)
+    authorize @post
     if @post.save
       default_photo(@post) if @post.photo.key.nil?
       redirect_to posts_path, notice: "Actualitée postée 👍"
@@ -24,9 +27,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+    authorize @post
   end
 
   def update
+    authorize @post
     if @post.update(post_params.except(:photo))
       if post_params[:photo].present?
         @post.photo.purge
@@ -39,6 +44,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize @post
     @post.destroy
     redirect_to posts_path, notice: "Actualitée supprimée 👍"
   end
