@@ -16,12 +16,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      if @post.photo.key.nil?
-        @post.photo.purge
-        default_photo = File.open(File.join(Rails.root,'app/assets/images/actu.jpg'))
-        @post.photo.attach(io: default_photo, filename: "lsa-actu", content_type: "image/png")
-        @post.save
-      end
+      default_photo(@post) if @post.photo.key.nil?
       redirect_to posts_path, notice: "Actualitée postée 👍"
     else
       render :new, status: :unprocessable_entity
@@ -41,6 +36,11 @@ class PostsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_path, notice: "Actualitée supprimée 👍"
   end
 
   private
@@ -66,5 +66,11 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:category, :date, :title, :subtitle, :publish_link, :content, :article_link, :photo)
+  end
+
+  def default_photo(post)
+    post.photo.purge
+    default_photo = File.open(File.join(Rails.root,'app/assets/images/actu.jpg'))
+    post.photo.attach(io: default_photo, filename: "lsa-actu", content_type: "image/png")
   end
 end
