@@ -1,0 +1,44 @@
+fr:
+  activerecord:
+    models:
+      contact: Contact
+    attributes:
+      contact:
+        first_name: Prénom
+        last_name: Nom
+        fonction: Fonction
+        firm: Société
+        email: E-mail
+        phone: Téléphone
+        subject: Objet de la demande
+        message: Message
+    errors:
+      messages:
+        and: "et"
+      models:
+        contact:
+          attributes:
+            first_name:
+              blank: "ne peut pas être vide"
+            last_name:
+              blank: "ne peut pas être vide"
+            fonction:
+              blank: "ne peut pas être vide"
+            firm:
+              blank: "ne peut pas être vide"
+            email:
+              blank: "ne peut pas être vide"
+            subject:
+              blank: "ne peut pas être vide"
+            message:
+              blank: "ne peut pas être vide"
+  simple_form:
+    "yes": 'Oui'
+    "no": 'Non'
+    required:
+      text: 'obligatoire'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+      default_message: "Erreur, veuillez vérifier vos réponses:"

@@ -255,6 +255,8 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
+    validates_email_format_of (1.7.2)
+      i18n
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -300,6 +302,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  validates_email_format_of
   web-console
   webdrivers
 
