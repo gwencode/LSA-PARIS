@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   get "/equipe", to: "pages#equipe"
 
-  get "/contact", to: "pages#contact"
+  get "/contact", to: "contact#new"
+  post "/contact", to: "contact#message"
 end
