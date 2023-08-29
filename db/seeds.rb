@@ -116,4 +116,15 @@ photo5 = URI.open("https://chatainassocies.com/wp-content/uploads/2021/06/pexels
 post5.photo.attach(io: photo5, filename: "pexels-enes-yoldas.jpg", content_type: "image/png")
 post5.save
 
+# Post de type "événements", avec image par défaut
+post6 = Post.new(
+  category: "événements",
+  title: "Actualité sans image par défaut",
+  content: "Un mec dans les airs qui tient un journal",
+  date: Date.new(2023, 8, 29)
+)
+photo6 = File.open(File.join(Rails.root,'app/assets/images/actu.jpg'))
+post6.photo.attach(io: photo6, filename: "lsa-actu", content_type: "image/png")
+post6.save
+
 puts "#{Post.count} posts created!"

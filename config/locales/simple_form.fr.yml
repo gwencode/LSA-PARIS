@@ -3,6 +3,15 @@ fr:
     models:
       contact: Contact
     attributes:
+      post:
+        category: Catégorie
+        title: Titre
+        subtitle: Sous-titre
+        content: Contenu
+        publish_link: Lien de la publication
+        article_link: Lien de l'article
+        date: Date
+        photo: Image
       contact:
         first_name: Prénom
         last_name: Nom
@@ -16,6 +25,16 @@ fr:
       messages:
         and: "et"
       models:
+        post:
+          attributes:
+            category:
+              blank: "ne peut pas être vide"
+            title:
+              blank: "ne peut pas être vide"
+            content:
+              blank: "ne peut pas être vide"
+            date:
+              blank: "ne peut pas être vide"
         contact:
           attributes:
             first_name:
