@@ -3,10 +3,12 @@ class ContactController < ApplicationController
 
   def new
     @contact = Contact.new
+    authorize @contact
   end
 
   def message
     @contact = Contact.new(contact_params)
+    authorize @contact
     if @contact.valid?
       ContactMailer.with(contact: @contact).contact_admin_email.deliver_now
       ContactMailer.with(contact: @contact).contact_user_email.deliver_now
