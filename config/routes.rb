@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  resources :posts
+  resources :posts, path: "actualites"
 
   get "/cabinet", to: "pages#cabinet"
 
