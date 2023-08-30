@@ -1,3 +1,7 @@
+<% content_for :meta_title, "LSA PARIS - Actualités - #{@post.title}" %>
+<% content_for :meta_description, @post.content %>
+<% content_for :meta_image, cl_image_path(@post.photo.key) if @post.photo.attached? %>
+
 <header>
   <%= link_to "< Retour", :back %>
   <p><%= @post.date %> | <%= "actualités".upcase %> | <%= @post.category.upcase %></p>
