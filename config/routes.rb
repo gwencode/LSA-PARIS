@@ -13,4 +13,8 @@ Rails.application.routes.draw do
 
   get "/contact", to: "contact#new"
   post "/contact", to: "contact#message"
+
+  get "/liens-utiles", to: "pages#liens_utiles"
+  get "/confidentialite", to: "pages#confidentialite"
+  get "/mentions-legales", to: "pages#mentions_legales"
 end
