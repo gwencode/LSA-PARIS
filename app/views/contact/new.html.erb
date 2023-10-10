@@ -11,5 +11,12 @@
     <%= f.input :phone %>
     <%= f.input :subject, required: true %>
     <%= f.input :message, required: true %>
+
+    <%= turbo_frame_tag 'recaptcha' do %>
+      <div class="mb-3 row">
+        <%= recaptcha_v3 action: 'message', site_key: ENV['RECAPTCHA_SITE_KEY'], turbolinks: true %>
+      </div>
+    <% end %>
+
     <%= f.submit "Envoyer" %>
 <% end %>
