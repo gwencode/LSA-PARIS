@@ -75,7 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_080806) do
     t.string "article_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "date", default: "2023-08-29", null: false
+    t.date "date", default: "2023-12-02", null: false
     t.string "slug"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
